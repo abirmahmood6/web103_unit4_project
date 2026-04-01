@@ -1,14 +1,13 @@
 import pg from 'pg'
+import dotenv from 'dotenv'
 
-const config = {
-    user: process.env.PGUSER,
-    password: process.env.PGPASSWORD,
-    host: process.env.PGHOST,
-    port: process.env.PGPORT,
-    database: process.env.PGDATABASE,
-    ssl: {
-      rejectUnauthorized: false
-    }
-}
+dotenv.config()
 
-export const pool = new pg.Pool(config)
+const connectionString = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}@${process.env.PGHOST}:${process.env.PGPORT}/${process.env.PGDATABASE}?sslmode=require`
+
+export const pool = new pg.Pool({
+  connectionString,
+  ssl: {
+    rejectUnauthorized: false
+  }
+})
