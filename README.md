@@ -1,148 +1,64 @@
-# Bolt Bucket - Car Customizer
+# WEB103 Project 4 - *Car Maker*
 
-A full-stack web application for customizing cars with various options like exterior colors, wheels, roof designs, and engines. Built with React frontend and Express.js backend with PostgreSQL database.
+Submitted by: **Abir Mahmood**
 
-## Features
+About this web app: **Customize and build your car!**
 
-- **Car Customization**: Choose from multiple options for exterior color, wheels, roof design (solid or convertible), and engine
-- **Real-time Price Calculation**: See the total price update as you select different options
-- **Visual Preview**: See a visual representation of your car that updates with your selections
-- **CRUD Operations**: Create, view, edit, and delete custom cars
-- **Responsive Design**: Works on desktop and mobile devices
+Time spent: *8** hours
 
-## Tech Stack
+## Required Features
 
-- **Frontend**: React 18, React Router, Pico CSS
-- **Backend**: Node.js, Express.js
-- **Database**: PostgreSQL (with mock implementation for development)
-- **Build Tools**: Vite, ESLint
+The following **required** functionality is completed:
 
-## Getting Started
+<!-- Make sure to check off completed functionality below -->
+- [x] **The web app uses React to display data from the API.**
+- [x] **The web app is connected to a PostgreSQL database, with an appropriately structured `CustomItem` table.**
+  - [x]  **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
+  - [x]  **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
+- [x] **Users can view **multiple** features of the `CustomItem` (e.g. car) they can customize, (e.g. wheels, exterior, etc.)**
+- [x] **Each customizable feature has multiple options to choose from (e.g. exterior could be red, blue, black, etc.)**
+- [x] **On selecting each option, the displayed visual icon for the `CustomItem` updates to match the option the user chose.**
+- [x] **The price of the `CustomItem` (e.g. car) changes dynamically as different options are selected *OR* The app displays the total price of all features.**
+- [x] **The visual interface changes in response to at least one customizable feature.**
+- [x] **The user can submit their choices to save the item to the list of created `CustomItem`s.**
+- [x] **If a user submits a feature combo that is impossible, they should receive an appropriate error message and the item should not be saved to the database.**
+- [x] **Users can view a list of all submitted `CustomItem`s.**
+- [x] **Users can edit a submitted `CustomItem` from the list view of submitted `CustomItem`s.**
+- [x] **Users can delete a submitted `CustomItem` from the list view of submitted `CustomItem`s.**
+- [x] **Users can update or delete `CustomItem`s that have been created from the detail page.**
 
-### Prerequisites
 
-- Node.js (v16 or higher)
-- npm or yarn
+The following **optional** features are implemented:
 
-### Installation
+- [ ] Selecting particular options prevents incompatible options from being selected even before form submission
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd web103_unit4_project
-   ```
+The following **additional** features are implemented:
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+- [ ] List anything else that you added to improve the site's functionality!
 
-3. Set up the database (optional - uses mock data by default):
-   - Create a PostgreSQL database on Render or locally
-   - Update the `.env` file in the `server` directory with your database credentials
-   - Run the database reset script:
-     ```bash
-     cd server
-     node config/reset.js
-     ```
+## Video Walkthrough
 
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
+Here's a walkthrough of implemented required features:
 
-5. Open your browser and navigate to `http://localhost:5173`
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-## Project Structure
+<!-- Replace this with whatever GIF tool you used! -->
+GIF created with ...  GIF tool here
+<!-- Recommended tools:
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
 
-```
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/         # Page components
-│   │   ├── services/      # API service functions
-│   │   ├── utilities/     # Helper functions
-│   │   └── App.jsx        # Main app component
-├── server/                 # Express backend
-│   ├── config/            # Database configuration
-│   ├── controllers/       # Route controllers
-│   ├── routes/            # API routes
-│   └── server.js          # Server entry point
-└── package.json           # Project dependencies
-```
+## Notes
 
-## API Endpoints
-
-### Cars
-- `GET /api/cars` - Get all cars
-- `GET /api/cars/:id` - Get car by ID
-- `POST /api/cars` - Create a new car
-- `PUT /api/cars/:id` - Update a car
-- `DELETE /api/cars/:id` - Delete a car
-
-### Options
-- `GET /api/options/exterior-colors` - Get exterior color options
-- `GET /api/options/wheels` - Get wheel options
-- `GET /api/options/interiors` - Get interior options
-- `GET /api/options/engines` - Get engine options
-
-## Customization Options
-
-### Exterior Colors
-- Midnight Black ($0)
-- Pearl White ($500)
-- Crimson Red ($800)
-- Ocean Blue ($600)
-- Forest Green ($700)
-
-### Wheels
-- Standard Alloy ($0)
-- Sport Rims ($1,200)
-- Premium Chrome ($1,800)
-- Off-Road Tires ($1,500)
-
-### Interiors
-- Standard Cloth ($0)
-- Leather Seats ($2,500)
-- Premium Leather ($3,500)
-- Sport Seats ($2,000)
-
-### Engines
-- Base 2.0L (180 HP, $0)
-- Turbo 2.5L (250 HP, $3,000)
-- V6 3.0L (320 HP, $5,000)
-- V8 4.0L (450 HP, $8,000)
-
-## Validation Rules
-
-- V8 engine is not compatible with standard cloth interior
-- All customization options must be selected before saving
-
-## Development
-
-### Available Scripts
-
-- `npm run dev` - Start development server (both frontend and backend)
-- `npm run build` - Build the frontend for production
-- `npm start` - Start production server
-
-### Mock Database
-
-For development purposes, the application uses an in-memory mock database that doesn't require PostgreSQL setup. The mock database includes all the necessary data and CRUD operations.
-
-To switch to a real PostgreSQL database:
-1. Set up a PostgreSQL database
-2. Update the `.env` file with database credentials
-3. Replace the mock database implementation in `server/config/database.js` with the actual PostgreSQL connection
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+Describe any challenges encountered while building the app or any additional context you'd like to add.
 
 ## License
 
-This project is licensed under the MIT License.
+Copyright [yyyy] [name of copyright owner]
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+> http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
